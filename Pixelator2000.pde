@@ -8,13 +8,16 @@ ControlFrame cf;
 Pixelator p;
 
 PImage thmb;      // thmb, molaría en controlFrame
-int control = 0;  // Creo que no se usa
+int control = 0;  // Esto creo que no se usa
 
 
 void settings() {
   fullScreen(P3D);
 }
 
+/*
+  SETUP PRINCIPAL
+*/
 void setup() {
   cf = new ControlFrame(this, 400, 600, "Controls");
   cam = new PeasyCam(this, 800);
@@ -29,6 +32,9 @@ void setup() {
   p = new Pixelator();
 }
 
+/*
+  DRAW PRINCIPAL
+*/
 void draw() {
   p.display();
 }

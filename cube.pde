@@ -33,5 +33,10 @@ class Cube {
   }
 
   // Actualizamos
-  void update() { }
+  void update() {
+    /*
+      Aquí podriamos animar movidas.
+      Rotaciones, tamaños, etc..
+    */
+  }
 }

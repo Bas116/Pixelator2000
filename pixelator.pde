@@ -10,8 +10,9 @@ class Pixelator {
   // Tamaño mín y máx de los cubos  
   int smallPoint = 4;
   int largePoint = 40;
-  //
+  // Número máximo de cubos a generar
   int limit = 1000;
+  // Variables varias
   boolean rendering = false;
   boolean clear = false;
 
@@ -61,5 +62,9 @@ class Pixelator {
   }
 
   void update() {
+    /*
+      Aquí podriamos animar movidas.
+      Rotaciones, tamaños, etc..
+    */
   }
 }
