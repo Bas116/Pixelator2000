@@ -29,7 +29,9 @@ public class ControlFrame extends PApplet {
     background(0); 
     cp5 = new ControlP5(this);
 
-    cp5.addBang("load_image") // Cambio a load_image, así pilla la función directamente
+    cp5.addBang("load_image")
+      // Cambio a load_image, así pilla la función directamente
+      // sin tener que tirar al eventController
       .setPosition((width/2)-140, 250)
       .setSize(280, 40)
       .setTriggerEvent(Bang.RELEASE)
@@ -69,11 +71,11 @@ public class ControlFrame extends PApplet {
      }
      */
     if (theEvent.getController().getName().equals("procesar_imagen")) {
-      rendering = !rendering;
+      p.rendering = !p.rendering;
       println("procesando imagen");
     }
     if (theEvent.getController().getName().equals("reiniciar_visor")) {
-      clear=true;
+      p.clear = true;
       println("visor reiniciado");
     }
     if (theEvent.getController().getName().equals("guardar_png")) {
@@ -91,8 +93,9 @@ public class ControlFrame extends PApplet {
   // COMPROBAMOS IMAGEN CARGADA
   void imageChosen( File f ) {
     if ( f.exists() ) {
-      img = loadImage( f.getAbsolutePath() );
+      p.img = loadImage( f.getAbsolutePath() );
       thmb = loadImage( f.getAbsolutePath() );
+      p.calculate();
     }
   }
 

@@ -2,46 +2,32 @@ import controlP5.*;
 import peasy.*;
 
 PeasyCam cam;
-ControlP5 cp5;
+// ControlP5 cp5;
 ControlFrame cf;
-Cube C1 = new Cube(0, 0, 0, 0);
+// Cube C1 = new Cube(0, 0, 0, 0);
+Pixelator p;
 
-PImage img;
-PImage thmb;
-int smallPoint, largePoint;
-int limit = 1000;
-int control = 0;
-boolean rendering = false;
-boolean clear = false;
+PImage thmb;      // thmb, molaría en controlFrame
+int control = 0;  // Creo que no se usa
+
 
 void settings() {
   fullScreen(P3D);
-  smallPoint = 4;
-  largePoint = 40;
 }
 
 void setup() {
   cf = new ControlFrame(this, 400, 600, "Controls");
+  cam = new PeasyCam(this, 800);
+  
+  // Configuramos escena
+  // igual no debería ir aquí
   background(0);
   lights();
   noStroke();
-  cam = new PeasyCam(this, 800);
+
+  p = new Pixelator();
 }
 
 void draw() {
-  process_image();
-}
-
-void process_image() { 
-  if (rendering == true) {
-    clear_viewer();
-    C1.display();
-  }
-}
-
-void clear_viewer() {
-  if (clear==true) {
-    background(0);
-    clear=false;
-  }
+  p.display();
 }

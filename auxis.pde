@@ -8,9 +8,9 @@
   GUARDAR IMAGEN EN PNG
 */
 void save_png() {
-  if (rendering == true) noLoop();
+  if (p.rendering == true) noLoop();
   saveFrame(get_file_name(".png"));
-  if (rendering == true) loop();
+  if (p.rendering == true) loop();
 }
 
 /*
