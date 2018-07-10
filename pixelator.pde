@@ -11,7 +11,7 @@ class Pixelator {
   int smallPoint = 4;
   int largePoint = 40;
   // Número máximo de cubos a generar
-  int limit = 1000;
+  int limit = 15000;
   // Variables varias
   boolean rendering = false;
   boolean clear = false;
@@ -26,14 +26,15 @@ class Pixelator {
   /*
     CALCULAMOS CUBOS
    */
-  public void calculate() {
-    for (int i = 0; i < limit; i++) {
-      float pointillize = map(mouseX, 0, width, smallPoint, largePoint);
-      int x = int(random(img.width));
-      int y = int(random(img.height));
-      int pix = img.get(x, y);
-      myCubes.add(new Cube(x, y, pix, pointillize, i));
-    }
+  void update() {
+    
+    if ((myCubes.size() > limit) || (img == null)) return;
+    
+    float pointillize = map(mouseX, 0, width, smallPoint, largePoint);
+    int x = int(random(img.width));
+    int y = int(random(img.height));
+    int pix = img.get(x, y);
+    myCubes.add(new Cube(x, y, pix, pointillize, myCubes.size()));
   }
 
   /*
@@ -57,14 +58,7 @@ class Pixelator {
   // Falta testear
   void clear_cubes() {
     for (int i = myCubes.size() - 1; i >= 0; i--) {
-        myCubes.remove(i);
+      myCubes.remove(i);
     }
-  }
-
-  void update() {
-    /*
-      Aquí podriamos animar movidas.
-      Rotaciones, tamaños, etc..
-    */
   }
 }

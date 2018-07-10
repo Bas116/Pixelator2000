@@ -95,7 +95,6 @@ public class ControlFrame extends PApplet {
     if ( f.exists() ) {
       p.img = loadImage( f.getAbsolutePath() );
       thmb = loadImage( f.getAbsolutePath() );
-      p.calculate();
     }
   }
 

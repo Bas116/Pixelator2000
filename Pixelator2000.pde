@@ -36,6 +36,7 @@ void setup() {
   DRAW PRINCIPAL
 */
 void draw() {
-background(0);
+  // background(0);
+  p.update();
   p.display();
 }
