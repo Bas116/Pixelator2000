@@ -6,6 +6,7 @@
 
 /*
   GUARDAR IMAGEN EN PNG
+  Aún no funciona.
 */
 void save_png() {
   if (p.rendering == true) noLoop();

@@ -52,6 +52,14 @@ class Pixelator {
     }
   }
 
+  // VACIAR ARRAR DE CUBOS
+  // Falta testear
+  void clear_cubes() {
+    for (int i = myCubes.size() - 1; i >= 0; i--) {
+        myCubes.remove(i);
+    }
+  }
+
   void update() {
   }
 }

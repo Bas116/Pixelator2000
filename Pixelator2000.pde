@@ -2,7 +2,7 @@ import controlP5.*;
 import peasy.*;
 
 PeasyCam cam;
-// ControlP5 cp5;
+// ControlP5 cp5; // Ya se instancia en controlFrame
 ControlFrame cf;
 // Cube C1 = new Cube(0, 0, 0, 0);
 Pixelator p;
@@ -25,6 +25,7 @@ void setup() {
   lights();
   noStroke();
 
+  // Instanciamos Pixelator
   p = new Pixelator();
 }
 
