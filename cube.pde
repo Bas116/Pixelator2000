@@ -10,6 +10,13 @@ class Cube {
   int y;
   color pix;
   int index;
+  
+  // TIPO DE OBJETO
+  final int CUBES = 0;
+  final int SPHERES = 1;
+  final int VERTICES = 2;
+  // POR DEFECTO
+  int type = CUBES;
 
   // Constructor
   Cube (int xpos, int ypos, color col, float vol, int _i) {
@@ -27,9 +34,20 @@ class Cube {
     pushMatrix();
     fill(pix, cube_size * 2);
     translate(x, y, cube_size * -10);
-    box(cube_size, cube_size, cube_size);
+    if (type == CUBES) {
+      box(cube_size, cube_size, cube_size);
+    } else if (type == SPHERES) {
+      sphere(cube_size);
+    } else if (type == VERTICES) {
+      ellipse(0, 0, cube_size, cube_size);
+    } else {
+    }
     popMatrix();
     // println("["+index+"] " + pix + " " + cube_size + " " + x + " " + y);
+  }
+  
+  void change_type(int _t) {
+    type = _t;
   }
 
   // Actualizamos

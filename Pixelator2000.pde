@@ -2,14 +2,10 @@ import controlP5.*;
 import peasy.*;
 
 PeasyCam cam;
-// ControlP5 cp5; // Ya se instancia en controlFrame
 ControlFrame cf;
-// Cube C1 = new Cube(0, 0, 0, 0);
 Pixelator p;
 
 PImage thmb;      // thmb, molaría en controlFrame
-int control = 0;  // Esto creo que no se usa
-
 
 void settings() {
   fullScreen(P3D);

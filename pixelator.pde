@@ -15,6 +15,15 @@ class Pixelator {
   // Variables varias
   boolean rendering = false;
   boolean clear = false;
+  
+  // TIPO DE OBJETO
+  // También declarado dentro de CUBE
+  final int CUBES = 0;
+  final int SPHERES = 1;
+  final int VERTICES = 2;
+  // POR DEFECTO
+  int object_type = CUBES;
+  
 
   // Constructor
   Pixelator() {
@@ -49,11 +58,19 @@ class Pixelator {
     // Iteramos los cubos pa pintarlos
     if (rendering == true) {
       for (Cube c : myCubes) {
+        c.change_type(object_type);
         c.display();
       }
     }
   }
 
+  /*
+    CAMBIAMOS TIPO DE OBJETO
+  */
+  void change_type(int _t) {
+    object_type = _t;
+  }
+  
   // VACIAR ARRAR DE CUBOS
   // Falta testear
   void clear_cubes() {
