@@ -23,41 +23,65 @@ public class ControlFrame extends PApplet {
   public void settings() {
     size(w, h);
   }
-
+  Slider Z;
+  Slider Alfa;
+  Slider Size;
+  
   public void setup() {
     noStroke();
-    background(0); 
+    background(0);
     cp5 = new ControlP5(this);
 
     cp5.addBang("load_image")
       // Cambio a load_image, así pilla la función directamente
       // sin tener que tirar al eventController
-      .setPosition((width/2)-140, 250)
-      .setSize(280, 40)
+      .setPosition(20, 540)
+      .setSize(40, 40)
       .setTriggerEvent(Bang.RELEASE)
       .setLabel("Cargar imagen")
       ;        
     cp5.addBang("procesar_imagen")
-      .setPosition((width/2)-50, 300)
-      .setSize(100, 80)
+      .setPosition(300, 500)
+      .setSize(80, 80)
       .setTriggerEvent(Bang.RELEASE)
       .setLabel("Procesar imagen")
       ;
     cp5.addBang("reiniciar_visor")
-      .setPosition((width/2)-50, 400)
+      .setPosition(320, 400)
       .setSize(50, 50)
       .setTriggerEvent(Bang.RELEASE)
       .setLabel("clear_output")
       ;
-    cp5.addBang("guardar_png")
-      .setPosition((width/2)-50, 480)
+      
+ /* cp5.addBang("guardar_png")
+      .setPosition(20, 480)
       .setSize(50, 50)
       .setTriggerEvent(Bang.RELEASE)
       .setLabel("save_png")
       ;
+      */
+    cp5.addSlider("Z")
+     .setPosition(20,300)
+     .setSize(100,20)
+     .setRange(0,255)
+     .setLabel("Profundidad");
+     ;
+    cp5.addSlider("Alfa")
+     .setPosition(20,340)
+     .setSize(100,20)
+     .setRange(0,255)
+     .setLabel("Transparencia");
+     ;
+    cp5.addSlider("Size")
+     .setPosition(20,380)
+     .setSize(100,20)
+     .setRange(0,255)
+     .setLabel("Profundidad");
+     ;
   }
 
   public void draw() {
+        background(0);
     if ( thmb != null ) {
       showThumb();
     }
