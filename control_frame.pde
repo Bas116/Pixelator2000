@@ -26,7 +26,7 @@ public class ControlFrame extends PApplet {
   Slider Z;
   Slider Alfa;
   Slider Size;
-  
+
   public void setup() {
     noStroke();
     background(0);
@@ -52,36 +52,54 @@ public class ControlFrame extends PApplet {
       .setTriggerEvent(Bang.RELEASE)
       .setLabel("clear_output")
       ;
-      
- /* cp5.addBang("guardar_png")
-      .setPosition(20, 480)
-      .setSize(50, 50)
-      .setTriggerEvent(Bang.RELEASE)
-      .setLabel("save_png")
-      ;
-      */
+
+    /* cp5.addBang("guardar_png")
+     .setPosition(20, 480)
+     .setSize(50, 50)
+     .setTriggerEvent(Bang.RELEASE)
+     .setLabel("save_png")
+     ;
+     */
     cp5.addSlider("Z")
-     .setPosition(20,300)
-     .setSize(100,20)
-     .setRange(0,255)
-     .setLabel("Profundidad");
-     ;
+      .setPosition(20, 300)
+      .setSize(100, 20)
+      .setRange(0, 255)
+      .setLabel("Profundidad");
+    ;
     cp5.addSlider("Alfa")
-     .setPosition(20,340)
-     .setSize(100,20)
-     .setRange(0,255)
-     .setLabel("Transparencia");
-     ;
+      .setPosition(20, 340)
+      .setSize(100, 20)
+      .setRange(0, 255)
+      .setLabel("Transparencia");
+    ;
     cp5.addSlider("Size")
-     .setPosition(20,380)
-     .setSize(100,20)
-     .setRange(0,255)
-     .setLabel("Profundidad");
-     ;
+      .setPosition(20, 380)
+      .setSize(100, 20)
+      .setRange(0, 255)
+      .setLabel("Profundidad");
+    ;
+    cp5.addBang("type_cubes")
+      .setPosition(20, 420)
+      .setSize(20, 20)
+      .setTriggerEvent(Bang.RELEASE)
+      .setLabel("Cubos");
+    ;
+    cp5.addBang("type_spheres")
+      .setPosition(60, 420)
+      .setSize(20, 20)
+      .setTriggerEvent(Bang.RELEASE)
+      .setLabel("Esferas");
+    ;
+    cp5.addBang("type_vertexs")
+      .setPosition(100, 420)
+      .setSize(20, 20)
+      .setTriggerEvent(Bang.RELEASE)
+      .setLabel("Círculos");
+    ;
   }
 
   public void draw() {
-        background(0);
+    background(0);
     if ( thmb != null ) {
       showThumb();
     }
@@ -89,7 +107,7 @@ public class ControlFrame extends PApplet {
 
   public void controlEvent(ControlEvent theEvent) {
     /*    
-    if (theEvent.getController().getName().equals("cargar_imagen")) {
+     if (theEvent.getController().getName().equals("cargar_imagen")) {
      load_image();
      println("cargando imagen");
      }
@@ -110,7 +128,7 @@ public class ControlFrame extends PApplet {
 
   /*
     CARGAMOS IMAGEN
-  */
+   */
   void load_image() {
     selectInput("Select an image", "imageChosen");
   }
@@ -122,6 +140,22 @@ public class ControlFrame extends PApplet {
     }
   }
 
+  /*
+    CAMBIAMOS TIPO DE OBJETO
+   */
+  void type_cubes() {
+    p.change_type(p.CUBES);
+  }
+  void type_spheres() {
+    p.change_type(p.SPHERES);
+  }
+  void type_vertexs() {
+    p.change_type(p.VERTICES);
+  }
+
+  /*
+    MOSTRAMOS MINIATURA
+   */
   void showThumb() {
     thmb.resize (0, height/3);
     image( thmb, ((width/2)-(thmb.width/2)), 20);

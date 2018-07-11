@@ -10,6 +10,7 @@ class Cube {
   int y;
   color pix;
   int index;
+  float brightness;
   
   // TIPO DE OBJETO
   final int CUBES = 0;
@@ -19,12 +20,13 @@ class Cube {
   int type = CUBES;
 
   // Constructor
-  Cube (int xpos, int ypos, color col, float vol, int _i) {
+  Cube (int xpos, int ypos, color col, float vol, int _i, float _b) {
     x = xpos;
     y = ypos;
     pix = col;
     cube_size = vol;
     index = _i;
+    brightness = _b;
   }
 
   /*

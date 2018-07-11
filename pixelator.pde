@@ -43,7 +43,7 @@ class Pixelator {
     int x = int(random(img.width));
     int y = int(random(img.height));
     int pix = img.get(x, y);
-    myCubes.add(new Cube(x, y, pix, pointillize, myCubes.size()));
+    myCubes.add(new Cube(x, y, pix, pointillize, myCubes.size(), pointillize));
   }
 
   /*
@@ -53,7 +53,7 @@ class Pixelator {
     // Limpiamos pantalla
     if (clear == true) {
       background(0);
-      clear = false;
+      // clear = false;
     }
     // Iteramos los cubos pa pintarlos
     if (rendering == true) {
